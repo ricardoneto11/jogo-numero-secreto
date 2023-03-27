@@ -5,7 +5,8 @@ function verificaSeOChutePossuiUmValorValido(chute) {
         elementoChute.innerHTML += '<div>Valor inválido</div>'
         return 
     }
-
+    
+    
     if (numeroForMaiorOuMenorQueOValorPermitido(numero)) {
         elementoChute.innerHTML += `<div>Valor inválido: Fale um número entre ${menorValor} e ${maiorValor}</div>`
         return
@@ -18,6 +19,21 @@ function verificaSeOChutePossuiUmValorValido(chute) {
 
             <button id="jogar-novamente" class="btn-jogar">Jogar novamente</button>
         `
+        const startit = () => {
+            setTimeout(function () {
+              confetti.start();
+            }, 100);
+          };
+          // Stops
+          const stopit = () => {
+            setTimeout(function () {
+              confetti.stop();
+            }, 5000);
+          };
+          // playing start
+          startit();
+          // stoping it
+          stopit();
     } else if (numero > numeroSecreto){
         elementoChute.innerHTML += `<div>O número secreto é menor <i class="fa-solid fa-down-long"></i></div>`
     } else {
@@ -38,3 +54,6 @@ document.body.addEventListener('click', e => {
         window.location.reload()
     }
 })
+
+
+  
